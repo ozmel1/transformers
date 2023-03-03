@@ -16,15 +16,18 @@ ARG PYTORCH='1.13.1'
 ARG TORCH_VISION=''
 ARG TORCH_AUDIO=''
 # Example: `cu102`, `cu113`, etc.
-ARG CUDA='cu116'
+ARG CUDA='cu117'
 
 ###RUN [ ${#PYTORCH} -gt 0 ] && VERSION='torch=='$PYTORCH'.*' ||  VERSION='torch'; python3 -m pip install --no-cache-dir -U $VERSION --extra-index-url https://download.pytorch.org/whl/$CUDA
 ###RUN [ ${#TORCH_VISION} -gt 0 ] && VERSION='torchvision=='TORCH_VISION'.*' ||  VERSION='torchvision'; python3 -m pip install --no-cache-dir -U $VERSION --extra-index-url https://download.pytorch.org/whl/$CUDA
 ###RUN [ ${#TORCH_AUDIO} -gt 0 ] && VERSION='torchaudio=='TORCH_AUDIO'.*' ||  VERSION='torchaudio'; python3 -m pip install --no-cache-dir -U $VERSION --extra-index-url https://download.pytorch.org/whl/$CUDA
 
 RUN python3 -m pip uninstall -y torch torchvision torchaudio torchtext
-RUN python3 -m pip install numpy --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu117
+### RUN python3 -m pip install numpy --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu117
 
+RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torch-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir --force-reinstall
+RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchvision-0.15.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir --force-reinstall
+RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchaudio-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir --force-reinstall
 
 RUN python3 -m pip uninstall -y tensorflow flax
 
