@@ -58,10 +58,10 @@ RUN python3 -m pip uninstall -y flax jax
 #RUN python3 -m pip install --no-cache-dir git+https://github.com/facebookresearch/detectron2.git pytesseract
 #RUN python3 -m pip install -U "itsdangerous<2.1.0"
 #
-#RUN python3 -m pip install --no-cache-dir git+https://github.com/huggingface/accelerate@main#egg=accelerate
+RUN python3 -m pip install --no-cache-dir git+https://github.com/huggingface/accelerate@main#egg=accelerate
 #
 ## Add bitsandbytes for mixed int8 testing
-#RUN python3 -m pip install --no-cache-dir bitsandbytes
+RUN python3 -m pip install --no-cache-dir bitsandbytes
 #
 ## For video model testing
 #RUN python3 -m pip install --no-cache-dir decord av==9.2.0
