@@ -1,12 +1,12 @@
 # https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel_22-04.html#rel_22-04
-FROM nvcr.io/nvidia/pytorch:22.04-py3
+FROM nvcr.io/nvidia/pytorch:22.08-py3
 LABEL maintainer="Hugging Face"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
 ARG PYTORCH='1.13.1'
 # Example: `cu102`, `cu113`, etc.
-ARG CUDA='cu116'
+ARG CUDA='cu117'
 
 RUN apt -y update
 RUN apt install -y libaio-dev
@@ -18,7 +18,10 @@ RUN git clone https://github.com/huggingface/transformers && cd transformers && 
 # Install latest release PyTorch
 # (PyTorch must be installed before pre-compiling any DeepSpeed c++/cuda ops.)
 # (https://www.deepspeed.ai/tutorials/advanced-install/#pre-install-deepspeed-ops)
-RUN python3 -m pip install --no-cache-dir -U torch==$PYTORCH torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/$CUDA
+### RUN python3 -m pip install --no-cache-dir -U torch==$PYTORCH torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/$CUDA
+RUN python3 -m pip uninstall -y torch torchvision torchaudio torchtext
+RUN python3 -m pip install numpy --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu117
+
 
 RUN python3 -m pip install --no-cache-dir ./transformers[deepspeed-testing]
 
