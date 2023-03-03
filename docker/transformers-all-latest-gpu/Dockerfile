@@ -38,9 +38,10 @@ RUN python3 -m pip uninstall -y torch torchvision torchaudio torchtext
 # https://download.pytorch.org/whl/nightly/cu117/torchvision-0.15.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl
 # https://download.pytorch.org/whl/nightly/cu117/torchaudio-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl
 
-RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torch-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir --force-reinstall
-RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchvision-0.15.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir --force-reinstall
-RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchaudio-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir --force-reinstall
+RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/pytorch_triton-2.0.0%2Bb8b470bc59-cp38-cp38-linux_x86_64.whl --no-cache-dir
+RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torch-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir
+RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchvision-0.15.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir
+RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchaudio-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir
 
 
 RUN python3 -m pip install --no-cache-dir -U tensorflow==2.11
