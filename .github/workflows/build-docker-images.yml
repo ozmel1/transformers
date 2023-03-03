@@ -26,12 +26,8 @@ jobs:
         run: |
           sudo ls -l /usr/local/lib/
           sudo ls -l /usr/share/
-          sudo ls -l /usr/local/lib/android
-          sudo ls -l /usr/share/dotnet
           sudo du -sh /usr/local/lib/
           sudo du -sh /usr/share/
-          sudo du -sh /usr/local/lib/android
-          sudo du -sh /usr/share/dotnet          
           sudo rm -rf /usr/local/lib/android
           sudo rm -rf /usr/share/dotnet   
           sudo du -sh /usr/local/lib/

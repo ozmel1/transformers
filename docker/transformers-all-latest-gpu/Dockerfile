@@ -51,12 +51,12 @@ RUN python3 -m pip uninstall -y flax jax
 ## To include the change in this commit https://github.com/onnx/tensorflow-onnx/commit/ddca3a5eb2d912f20fe7e0568dd1a3013aee9fa3
 ## Otherwise, we get tf2onnx==1.8 (caused by `flatbuffers` version),  and some tests fail with `ValueError: from_keras requires input_signature`.
 ## TODO: remove this line once the conflict is resolved in these libraries.
-#RUN python3 -m pip install --no-cache-dir git+https://github.com/onnx/tensorflow-onnx.git@ddca3a5eb2d912f20fe7e0568dd1a3013aee9fa3
+RUN python3 -m pip install --no-cache-dir git+https://github.com/onnx/tensorflow-onnx.git@ddca3a5eb2d912f20fe7e0568dd1a3013aee9fa3
 #
-#RUN python3 -m pip install --no-cache-dir intel_extension_for_pytorch==$INTEL_TORCH_EXT+cpu -f https://software.intel.com/ipex-whl-stable
+RUN python3 -m pip install --no-cache-dir intel_extension_for_pytorch==$INTEL_TORCH_EXT+cpu -f https://software.intel.com/ipex-whl-stable
 #
-#RUN python3 -m pip install --no-cache-dir git+https://github.com/facebookresearch/detectron2.git pytesseract
-#RUN python3 -m pip install -U "itsdangerous<2.1.0"
+RUN python3 -m pip install --no-cache-dir git+https://github.com/facebookresearch/detectron2.git pytesseract
+RUN python3 -m pip install -U "itsdangerous<2.1.0"
 #
 RUN python3 -m pip install --no-cache-dir git+https://github.com/huggingface/accelerate@main#egg=accelerate
 #
@@ -64,10 +64,10 @@ RUN python3 -m pip install --no-cache-dir git+https://github.com/huggingface/acc
 RUN python3 -m pip install --no-cache-dir bitsandbytes
 #
 ## For video model testing
-#RUN python3 -m pip install --no-cache-dir decord av==9.2.0
+RUN python3 -m pip install --no-cache-dir decord av==9.2.0
 
 ## For `dinat` model
-#RUN python3 -m pip install --no-cache-dir natten -f https://shi-labs.com/natten/wheels/$CUDA/
+RUN python3 -m pip install --no-cache-dir natten -f https://shi-labs.com/natten/wheels/$CUDA/
 
 # When installing in editable mode, `transformers` is not recognized as a package.
 # this line must be added in order for python to be aware of transformers.
