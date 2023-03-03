@@ -13,7 +13,7 @@ ARG PYTORCH='1.13.1'
 # (not always a valid torch version)
 ARG INTEL_TORCH_EXT='1.11.0'
 # Example: `cu102`, `cu113`, etc.
-ARG CUDA='cu116'
+ARG CUDA='cu117'
 
 RUN apt update
 RUN apt install -y git libsndfile1-dev tesseract-ocr espeak-ng python3 python3-pip ffmpeg git-lfs
