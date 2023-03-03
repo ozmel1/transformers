@@ -32,7 +32,16 @@ RUN python3 -m pip install --no-cache-dir -e ./transformers[dev,onnxruntime]
 # TODO: We might need to specify proper versions that work with a specific torch version (especially for past CI).
 ### RUN [ "$PYTORCH" != "pre" ] && python3 -m pip install --no-cache-dir -U $VERSION torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/$CUDA || python3 -m pip install --no-cache-dir -U --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/$CUDA
 RUN python3 -m pip uninstall -y torch torchvision torchaudio torchtext
-RUN python3 -m pip install numpy --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu117
+### RUN python3 -m pip install numpy --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu117
+
+# https://download.pytorch.org/whl/nightly/cu117/torch-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl
+# https://download.pytorch.org/whl/nightly/cu117/torchvision-0.15.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl
+# https://download.pytorch.org/whl/nightly/cu117/torchaudio-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl
+
+RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torch-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir --force-reinstall
+RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchvision-0.15.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir --force-reinstall
+RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchaudio-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir --force-reinstall
+
 
 RUN python3 -m pip install --no-cache-dir -U tensorflow==2.11
 RUN python3 -m pip install --no-cache-dir -U tensorflow_probability
