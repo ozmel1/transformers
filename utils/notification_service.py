@@ -819,7 +819,8 @@ if __name__ == "__main__":
                 stacktraces = handle_stacktraces(artifact["failures_line"])
 
                 for line in artifact["summary_short"].split("\n"):
-                    if re.search("FAILED", line):
+                    # if re.search("FAILED", line):
+                    if line.strip().startswith("FAILED "):
                         line = line.replace("FAILED ", "")
                         line = line.split()[0].replace("\n", "")
 
