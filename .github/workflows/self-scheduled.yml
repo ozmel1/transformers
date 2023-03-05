@@ -9,7 +9,7 @@ name: Self-hosted runner (scheduled)
 on:
   push:
     branches:
-      - ci_with_pt_2.0_XXX
+      - ci_with_pt_2.0
 
 env:
   HF_HOME: /mnt/cache
