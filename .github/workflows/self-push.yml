@@ -5,16 +5,16 @@ on:
     workflows: ["Self-hosted runner (push-caller)"]
     branches: ["main"]
     types: [completed]
-  push:
-    branches:
-      - ci_*
-      - ci-*
-    paths:
-      - "src/**"
-      - "tests/**"
-      - ".github/**"
-      - "templates/**"
-      - "utils/**"
+#  push:
+#    branches:
+#      - ci_*
+#      - ci-*
+#    paths:
+#      - "src/**"
+#      - "tests/**"
+#      - ".github/**"
+#      - "templates/**"
+#      - "utils/**"
   repository_dispatch:
 
 env:
