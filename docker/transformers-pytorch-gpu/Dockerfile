@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.7.0-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:11.7.1-cudnn8-devel-ubuntu20.04
 LABEL maintainer="Hugging Face"
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -25,12 +25,12 @@ ARG CUDA='cu117'
 RUN python3 -m pip uninstall -y torch torchvision torchaudio torchtext
 ### RUN python3 -m pip install numpy --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu117
 
-RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/pytorch_triton-2.0.0%2Bb8b470bc59-cp38-cp38-linux_x86_64.whl --no-cache-dir
-RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torch-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir
-RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchvision-0.15.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir
-RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchaudio-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir
+#RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/pytorch_triton-2.0.0%2Bb8b470bc59-cp38-cp38-linux_x86_64.whl --no-cache-dir
+#RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torch-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir
+#RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchvision-0.15.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir
+#RUN python3 -m pip install -U https://download.pytorch.org/whl/nightly/cu117/torchaudio-2.0.0.dev20230301%2Bcu117-cp38-cp38-linux_x86_64.whl --no-cache-dir
 
-
+RUN python3 -m pip install -U torch torchvision torchaudio --index-url https://download.pytorch.org/whl/test/cu117 --no-cache-dir
 
 RUN python3 -m pip uninstall -y tensorflow flax
 
