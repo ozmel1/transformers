@@ -9,7 +9,7 @@ name: Self-hosted runner (scheduled)
 on:
   push:
     branches:
-      - run_ci_with_pt_2.0_xxx
+      - run_ci_with_pt_2.0
 
 env:
   HF_HOME: /mnt/cache
@@ -131,7 +131,7 @@ jobs:
 
       - name: Run all tests on GPU
         working-directory: /transformers
-        run: python3 -m pytest -v --make-reports=${{ matrix.machine_type }}_tests_gpu_${{ matrix.folders }} tests/${{ matrix.folders }} -k "not (test_multi_gpu_data_parallel_forward)"
+        run: python3 -m pytest -v --make-reports=${{ matrix.machine_type }}_tests_gpu_${{ matrix.folders }} tests/${{ matrix.folders }}
 
       - name: Failure short reports
         if: ${{ failure() }}
@@ -188,7 +188,7 @@ jobs:
 
       - name: Run all tests on GPU
         working-directory: /transformers
-        run: python3 -m pytest -v --make-reports=${{ matrix.machine_type }}_tests_gpu_${{ matrix.folders }} tests/${{ matrix.folders }} -k "not (test_multi_gpu_data_parallel_forward)"
+        run: python3 -m pytest -v --make-reports=${{ matrix.machine_type }}_tests_gpu_${{ matrix.folders }} tests/${{ matrix.folders }}
 
       - name: Failure short reports
         if: ${{ failure() }}
