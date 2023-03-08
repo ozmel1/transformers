@@ -20,12 +20,13 @@ RUN git clone https://github.com/huggingface/transformers && cd transformers && 
 # (https://www.deepspeed.ai/tutorials/advanced-install/#pre-install-deepspeed-ops)
 ### RUN python3 -m pip install --no-cache-dir -U torch==$PYTORCH torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/$CUDA
 RUN python3 -m pip uninstall -y torch torchvision torchaudio torchtext
-RUN python3 -m pip install numpy --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu117
+RUN python3 -m pip install -U torch torchvision torchaudio --index-url https://download.pytorch.org/whl/test/cu117 --no-cache-dir
 
 
 RUN python3 -m pip install --no-cache-dir ./transformers[deepspeed-testing]
 
-RUN python3 -m pip install torch-tensorrt==1.3.0 --find-links https://github.com/pytorch/TensorRT/releases/expanded_assets/v1.3.0
+# This will uninstall torch 2.0.0
+#RUN python3 -m pip install torch-tensorrt==1.3.0 --find-links https://github.com/pytorch/TensorRT/releases/expanded_assets/v1.3.0
 
 # recompile apex
 RUN python3 -m pip uninstall -y apex
