@@ -361,6 +361,10 @@ jobs:
       - name: Remove cached torch extensions
         run: rm -rf /github/home/.cache/torch_extensions/
 
+      - name: Un-Install
+        run: |
+          python3 -m pip uninstall -y tensorrt torch_tensorrt
+
       # To avoid unknown test failures
       - name: Pre build DeepSpeed *again*
         working-directory: /workspace
