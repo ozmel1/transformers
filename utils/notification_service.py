@@ -866,7 +866,7 @@ if __name__ == "__main__":
     additional_files = {
         "Examples directory": "run_examples_gpu",
         "PyTorch pipelines": "run_tests_torch_pipeline_gpu",
-        "TensorFlow pipelines": "run_tests_tf_pipeline_gpu",
+        # "TensorFlow pipelines": "run_tests_tf_pipeline_gpu",
         "Torch CUDA extension tests": "run_tests_torch_cuda_extensions_gpu_test_reports",
     }
 
