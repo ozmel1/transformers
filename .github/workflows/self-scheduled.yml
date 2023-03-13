@@ -9,7 +9,7 @@ name: Self-hosted runner (scheduled)
 on:
   push:
     branches:
-      - run_daily_ci_with_torch_2_0_0
+      - run_daily_ci_with_torch_2_0_0_xxx
 
 env:
   HF_HOME: /mnt/cache
